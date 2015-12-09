@@ -1,0 +1,181 @@
+% THIS IS SIGPROC-SP.TEX - VERSION 3.1
+% WORKS WITH V3.2SP OF ACM_PROC_ARTICLE-SP.CLS
+% APRIL 2009
+%
+% It is an example file showing how to use the 'acm_proc_article-sp.cls' V3.2SP
+% LaTeX2e document class file for Conference Proceedings submissions.
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V3.2SP) *DOES NOT* produce:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) Page numbering
+% ---------------------------------------------------------------------------------------------------------------
+% It is an example which *does* use the .bib file (from which the .bbl file
+% is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission,
+% you need to 'insert'  your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% Questions regarding SIGS should be sent to
+% Adrienne Griscti ---> griscti@acm.org
+%
+% Questions/suggestions regarding the guidelines, .tex and .cls files, etc. to
+% Gerald Murray ---> murray@hq.acm.org
+%
+% For tracking purposes - this is V3.1SP - APRIL 2009
+
+\documentclass{acm_proc_article-sp}
+
+\usepackage{url}
+
+\begin{document}
+
+\title{Title}
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+%\texttt{www.acm.org/eaddress.htm}}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{1} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Thomas Maillart\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{School of Information}\\
+       \affaddr{ University of California, Berkeley, 102 South Hall}\\
+       \affaddr{Berkeley, CA 94720}\\
+       \email{thomas.maillart@ischool.berkeley.edu}
+}
+
+\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+Abstract
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\terms{Theory}
+
+\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+
+\section{Introduction}
+
+\section{Method}
+1 .The current implementation involved sampling analyzing XXXX questions from 83 StackExchange Websites (\url{http://stackexchange.com/sites#}) to characterize the statistical properties of answer timelines, as a measure of collective problem solving efficiency. 
+
+2. StackExchange, and StackOverflow in particular, is a widely recognized platform on which people ask questions and get answers by the community. Community members are incentivized to help and thoroughly answer questions through a system of points and badges \cite{leskovec}.
+
+3. The questions were selected randomly and sufficiently quantity to ensure a minimum 20\% sampling for each StackExchange website  (at the exception of Stack Overflow, less than 10\%). The main statistics are reported in Table \ref{sjodisnf}. For each question, the following measures were extracted :
+
+\begin{itemize}
+  \item when question was posted
+  \item number of answers, their number of votes (+ and -)
+  \item number of comments
+  \item when best answer has been posted
+  \item number of users involved in the response process
+\end{itemize}
+
+Layout Table 1 (General Statistics) columns : StackExchange Site, \#questions,  \#questions sampled, percentage answered, median number of users involved, median number of answers, median time to accepted answer.
+
+4. The data were collected through the StackExchange API, stored, processed and analyzed on Amazon Web Services. 
+5. The main metric of interest for each website is the probability distribution of waiting times before a question is answered. The other metrics described above shall be considered as control variables.
+
+6. The distribution of waiting times is characterized by a heavy-tail, which is quantified using standard tools \cite{shfk}.
+
+7. This method is particularly robust for .... of interest here.
+
+8. Questions posted less than 6 months before the beginning of data collection (October 2013) were ignored.
+
+9. The StackExchange API does not mention when the ``best answer" has been accepted by the person asking the question. This has however a limited impact on our results since we care to know when the best answer was first provided. The best answer as chosen by the person who initially asked the question, might not be the one preferred by the number of votes by the community. We measure the effects of this distinction. We also care that some questions are not ``forgotten" by the community, as the time we want to measure is the minimum time required to find a solution given a problem. Actually, unanswered questions are presented by StackExchange to the users to maximize the probability that they will answer them if they find a solution (find link documenting the process).
+
+
+\begin{table}
+\centering
+\caption{Frequency of Special Characters}
+\begin{tabular}{|c|c|l|} \hline
+Non-English or Math&Frequency&Comments\\ \hline
+\O & 1 in 1,000& For Swedish names\\ \hline
+$\pi$ & 1 in 5& Common in math\\ \hline
+\$ & 4 in 5 & Used in business\\ \hline
+$\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
+\hline\end{tabular}
+\end{table}
+
+\section{Limitations}
+
+
+
+
+\section{Conclusions}
+
+%ACKNOWLEDGMENTS are optional
+%\section{Acknowledgments}
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+\appendix
+%Appendix A
+\section{Headings in Appendices}
+
+\end{document}
