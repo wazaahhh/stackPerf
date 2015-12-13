@@ -159,7 +159,7 @@ def retrieveQuestions(api_site_name,reload=False,uploadToS3=True):
     if not reload:
         try:
             key = bucket.get_key("QA/%s.json.zlib"%api_site_name)
-            return json.loads(key.get_contents_as_string())
+            return json.loads(zlib.decompress(key.get_contents_as_string()))
         except:
             pass
 
