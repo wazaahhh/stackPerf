@@ -3,3 +3,5 @@ data*
 tmp*
 
 *.pyc
+
+retrieveData/credentials2

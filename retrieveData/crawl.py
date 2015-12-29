@@ -50,14 +50,11 @@ def retrieveData(api_url, minpage = 1, maxpage = 1):
         print api_url
         try:
             J = request(api_url)
-            time.sleep(1)
-        except Exception,e:
-            print str(e)
-            if str(e) == 'BadStatusLine':
-                time.sleep(30)
-                print "sleeping a bit"
-            else:
-                break
+            time.sleep(5)
+        except:
+            print "sleeping a bit"
+            time.sleep(5)
+            page -= 1
 
         items = np.concatenate([items,J['items']])
         quota = J['quota_remaining']
@@ -186,7 +183,7 @@ def retrieveStackoverflow(uploadToS3=True):
             break
 
 
-    url = '''http://api.stackexchange.com/2.2/questions?key=%s&page=1&pagesize=100&order=asc&sort=creation&site=%s&filter=!1zsgZPWgv2QOgMTscL*8F'''%(api_key,api_site_name) # added question tags
+    url = '''http://api.stackexchange.com/2.2/questions?page=1&pagesize=100&order=asc&sort=creation&key=%s&site=%s&filter=!1zsgZPWgv2QOgMTscL*8F'''%(api_key,api_site_name) # added question tags
 
     #print url
     quota = 10000
