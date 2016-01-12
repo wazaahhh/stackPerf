@@ -20,7 +20,7 @@ bucket = connectBucket(bucketName)
 
 def loadApiKey():
     #return json.loads(open('credentials','rb').read()[:-1])['key']
-    return open('credentials','rb').read()[:-1]
+    return open('credentials2','rb').read()[:-1]
 
 global api_key
 api_key = loadApiKey()
@@ -50,10 +50,10 @@ def retrieveData(api_url, minpage = 1, maxpage = 1):
         print api_url
         try:
             J = request(api_url)
-            time.sleep(5)
+            time.sleep(0.5)
         except:
             print "sleeping a bit"
-            time.sleep(5)
+            time.sleep(15)
             page -= 1
 
         items = np.concatenate([items,J['items']])
@@ -183,13 +183,15 @@ def retrieveStackoverflow(uploadToS3=True):
             break
 
 
-    url = '''http://api.stackexchange.com/2.2/questions?page=1&pagesize=100&order=asc&sort=creation&key=%s&site=%s&filter=!1zsgZPWgv2QOgMTscL*8F'''%(api_key,api_site_name) # added question tags
+    url = '''http://api.stackexchange.com/2.2/questions?page=1&pagesize=100&order=asc&sort=creation&key=%s&filter=!1zsgZPWgv2QOgMTscL*8F&site=%s'''%(api_key,api_site_name) # added question tags
+
+    #&filter=!1zsgZPWgv2QOgMTscL*8F
 
     #print url
     quota = 10000
     while quota > 1000:
         minpage = maxpage + 1
-        maxpage = minpage + 999
+        maxpage = minpage + 99
 
         print minpage,maxpage
 
